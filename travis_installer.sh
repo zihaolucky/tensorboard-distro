@@ -35,3 +35,5 @@ pip install python/dist/*.whl
 # clean up
 rm -rf tensorflow/
 
+# back to top
+cd ..
