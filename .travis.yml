@@ -171,7 +171,6 @@ install:
 - pip install -U pip setuptools wheel protobuf numpy
 script:
 - source travis_installer.sh
-- python tensorboard/tests/python/test_scalar.py
 deploy:
   provider: pypi
   user: zihaolucky
