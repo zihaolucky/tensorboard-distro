@@ -2,144 +2,141 @@ language: python
 sudo: required
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      python: 2.7
-      env:
-        - PYTHON_MAJOR_VERSION=2.7
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - git
-            - libcurl4-openssl-dev
-            - unzip
-            - gcc-4.8
-            - g++-4.8
-            - cmake
-            - gfortran
-            - pandoc
-    - os: linux
-      dist: trusty
-      python: 3.4
-      env:
-        - PYTHON_MAJOR_VERSION=3.4
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - git
-            - libcurl4-openssl-dev
-            - unzip
-            - gcc-4.8
-            - g++-4.8
-            - cmake
-            - gfortran
-            - pandoc
-            - python3-pip
-    - os: linux
-      dist: trusty
-      python: 3.5
-      env:
-        - PYTHON_MAJOR_VERSION=3.5
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - git
-            - libcurl4-openssl-dev
-            - unzip
-            - gcc-4.8
-            - g++-4.8
-            - cmake
-            - gfortran
-            - pandoc
-            - python3-pip
-    - os: linux
-      dist: trusty
-      python: 3.6
-      env:
-        - PYTHON_MAJOR_VERSION=3.6
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - git
-            - libcurl4-openssl-dev
-            - unzip
-            - gcc-4.8
-            - g++-4.8
-            - cmake
-            - gfortran
-            - pandoc
-            - python3-pip
-
-    - os: osx
-      osx_image: xcode8.2
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=2.7
-    - os: osx
-      osx_image: xcode8.2
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.4
-    - os: osx
-      osx_image: xcode8.2
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.5
-    - os: osx
-      osx_image: xcode8.2
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.6
-
-    - os: osx
-      osx_image: xcode8
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=2.7
-    - os: osx
-      osx_image: xcode8
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.4
-    - os: osx
-      osx_image: xcode8
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.5
-    - os: osx
-      osx_image: xcode8
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.6
-
-    - os: osx
-      osx_image: xcode6.4
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=2.7
-    - os: osx
-      osx_image: xcode6.4
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.4
-    - os: osx
-      osx_image: xcode6.4
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.5
-    - os: osx
-      osx_image: xcode6.4
-      language: generic
-      env:
-        - PYTHON_MAJOR_VERSION=3.6
+  - os: linux
+    dist: trusty
+    python: 2.7
+    env:
+    - PYTHON_MAJOR_VERSION=2.7
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - git
+        - libcurl4-openssl-dev
+        - unzip
+        - gcc-4.8
+        - g++-4.8
+        - cmake
+        - gfortran
+        - pandoc
+  - os: linux
+    dist: trusty
+    python: 3.4
+    env:
+    - PYTHON_MAJOR_VERSION=3.4
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - git
+        - libcurl4-openssl-dev
+        - unzip
+        - gcc-4.8
+        - g++-4.8
+        - cmake
+        - gfortran
+        - pandoc
+        - python3-pip
+  - os: linux
+    dist: trusty
+    python: 3.5
+    env:
+    - PYTHON_MAJOR_VERSION=3.5
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - git
+        - libcurl4-openssl-dev
+        - unzip
+        - gcc-4.8
+        - g++-4.8
+        - cmake
+        - gfortran
+        - pandoc
+        - python3-pip
+  - os: linux
+    dist: trusty
+    python: 3.6
+    env:
+    - PYTHON_MAJOR_VERSION=3.6
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - git
+        - libcurl4-openssl-dev
+        - unzip
+        - gcc-4.8
+        - g++-4.8
+        - cmake
+        - gfortran
+        - pandoc
+        - python3-pip
+  - os: osx
+    osx_image: xcode8.2
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=2.7
+  - os: osx
+    osx_image: xcode8.2
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.4
+  - os: osx
+    osx_image: xcode8.2
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.5
+  - os: osx
+    osx_image: xcode8.2
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.6
+  - os: osx
+    osx_image: xcode8
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=2.7
+  - os: osx
+    osx_image: xcode8
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.4
+  - os: osx
+    osx_image: xcode8
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.5
+  - os: osx
+    osx_image: xcode8
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.6
+  - os: osx
+    osx_image: xcode6.4
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=2.7
+  - os: osx
+    osx_image: xcode6.4
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.4
+  - os: osx
+    osx_image: xcode6.4
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.5
+  - os: osx
+    osx_image: xcode6.4
+    language: generic
+    env:
+    - PYTHON_MAJOR_VERSION=3.6
 before_install: |
   if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
       rvm get head --auto-dotfiles
@@ -176,7 +173,7 @@ deploy:
   provider: pypi
   user: zihaolucky
   password:
-    secure: MeVZ1A6snRdaifnVYdZCNigyYMW/evFVtV6lGyVcNrea81n9WA9M32vbHq+Up1zs89BFsxK8M7uGIPXFuw9o2cuLnRU7ecz3yyYP/H7SKqxgljMn64Crrzmrpz/XnOaPMT7harqalrdFzOfB273Ab5GyVwUktmce3ZMYFvEixGtvgEEhgeAHTAt7DEZPfGNT9LGVkReZRmqG3o4dJnuzIX6lczWYTxgy0UKXzNsrjzs/OUaLvN8ryCGgSXHw/gntaN2rgO46MEXgRVb6g3MvZHh3HMy/3btHxdGm6YBDt+PLlpAeMUD2jpenJ7DZrYpq9FLuOcAnJFJfYPAq4aMBbNJCed6G/HLsV3augQkcIAw9x+6+9B5T/aA3xwEPObzHBIqNFvqM+xvwb7kEvcFsmkz0MU7xC7c3drq575+/i8oO3cimhBUEEc4F9/q7MOvPkAScBa97IDIAkdRJ1w7xvne6ILA02rlqNAaXj63zm2Qd7rI+1Khccjk7+99AcNg/DRCAshVpp5tnm03cyvoCKo/hJpO3bYb1jq3L1TONiBx77kYc9FJTnsQSjJYLPQpGQ01LlBYSIjEYC5gWJ7FMMV9yCHr6OFgPH73SRLTvu5BRRPQj2htkZxDhxCkcfczACXeZ7SRbQBTitsBzIdgZSnHiulalDhYSwImKRpNo81Q=
+    secure: 28LnL+SqU+PA+eOxKciWo3x6JGoEmuxiUGamIEh+tuFZnUs6YIg2ysnjWOND8DiQhcvA3YhSya7fxBLwyKZGWqwHb4vqqD1tJGhSSOHxSX9kg2xcFu7o0VfVFh0K9C7hY1JE12fCWNN6uSN3Hb3colKW8OkNG06yXg4P+hc+aGfq4y6RntRB6hPvH+eeVrzciRXhWQJEEH3vOWzF4I3EB5aQMNFOXAbKDkjHoGkYtCbUO3eiaP+aF3Mr8mkNxMNZC2aCRylTsgm+dxCHQ7bAQWpUwLQ4YVPC96oF2ConNPK0IoklsTLRjvoWRseLMjqOOZcZW7o4XUJJ7VU3PRazmQEzrWz6ORY2z4YifXxtmZTK7COEp//lRfKsRPmbUpJHf6621ExAMiX3xV2VuiKePc9wN34kfS7ntLMII9/MZJCj70jcqIggBHou3I1a2g54yxSevH9qjkJJreBhfph51h9POJavKQYg6heXn6kxkejpeGcT0RZIIK7QA1cVgdcLhjTRPkNEAV5CUrg55YEH87zC3ZCEtGwDvfJVOVYvirJbW6AD75bCJ10sz5k0rV53WrjyX3JfOm/d8zXrQvXbcH0N8C1bNZIv9aPiIhBrzPVbFkfRE9kJaVdSfu9Z0dS4H4+P578BRbug/2TOiYpng1AC1/Nl367Zl0IEw3n5wgo=
   distributions: bdist_wheel
   on:
     tags: true
