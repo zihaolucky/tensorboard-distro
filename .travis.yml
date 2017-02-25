@@ -171,7 +171,7 @@ install:
 - pip install -U pip setuptools wheel protobuf numpy
 script:
 - source travis_installer.sh
-- cd
+- ls
 deploy:
   provider: pypi
   user: zihaolucky
