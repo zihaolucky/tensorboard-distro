@@ -29,6 +29,8 @@ bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 set -eo pipefail
 
 cd ..
+rm python/setup.py
+rm python/README*
 cp -r python/* ../
 pip install python/dist/*.whl
 
@@ -37,3 +39,6 @@ rm -rf tensorflow/
 
 # back to top
 cd ..
+
+# @szha: this is a workaround for travis-ci#6522
+set +e
