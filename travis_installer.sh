@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-# mkdir for dist
-mkdir dist
-
 # fetch tensorboard
-git clone https://github.com/dmlc/tensorboard.git
-# replace setup.py
-cp setup.py tensorboard/python/
-cd tensorboard
+git clone https://github.com/dmlc/tensorboard.git tensorboard-build
+cd tensorboard-build
 
 # make protobufs for logging part first
 make all
@@ -34,9 +29,9 @@ bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 set -eo pipefail
 
 cd ..
-cp -r python/dist/*.whl ../dist/
+cp -r python/* ../
 pip install python/dist/*.whl
 
 # clean up
-#rm -rf tensorflow/
+rm -rf tensorflow/
 
