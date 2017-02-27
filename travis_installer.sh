@@ -2,6 +2,8 @@
 
 # fetch tensorboard
 git clone https://github.com/dmlc/tensorboard.git tensorboard-build
+# replace setup.py
+cp setup.py tensorboard-build/python/
 cd tensorboard-build
 
 # make protobufs for logging part first
@@ -29,9 +31,10 @@ bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 set -eo pipefail
 
 cd ..
-rm python/setup.py
 rm python/README*
 cp -r python/* ../
+# python-binary issue
+git apply ../tools/travis_wheel/python-binary.patch
 pip install python/dist/*.whl
 
 # clean up

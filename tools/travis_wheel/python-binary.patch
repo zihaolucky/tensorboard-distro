@@ -1,0 +1,18 @@
+diff --git a/python/tensorboard/tensorboard b/python/tensorboard/tensorboard
+index e205d52..59b7d67 100755
+--- a/python/tensorboard/tensorboard
++++ b/python/tensorboard/tensorboard
+@@ -38,7 +38,12 @@ def FindPythonBinary():
+       'Bazel does not support execution of Python interpreters via labels yet')
+   elif PYTHON_BINARY.startswith('/'):
+     # Case 2: Absolute path.
+-    return PYTHON_BINARY
++    if os.path.exists(PYTHON_BINARY):
++      # file exists
++      return PYTHON_BINARY
++    else:
++      # not exist, have to search. often occurs in travis-built wheel.
++      return SearchPath('python')
+   elif '/' in PYTHON_BINARY:
+     # Case 3: Path is relative to current working directory.
+     return os.path.join(os.getcwd(), PYTHON_BINARY)
