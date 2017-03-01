@@ -111,8 +111,8 @@ function main() {
   pushd ${TMPDIR}
   rm -f MANIFEST
   cd ..
-  # apply tensorboard-binary.path
-  git apply ../tensorboard-binary.patch
+  # apply tensorboard-binary-and-runfiles.path
+  #git apply ../tools/travis_wheel/tensorboard-binary-and-runfiles.patch
   echo $(date) : "=== Building wheel"
   "${PYTHON_BIN_PATH:-python}" setup.py bdist_wheel ${GPU_FLAG} >/dev/null
   echo $(date) : "=== Output wheel file is in: ${DEST}"

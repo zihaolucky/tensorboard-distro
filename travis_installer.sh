@@ -31,8 +31,6 @@ bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 set -eo pipefail
 
 cd ..
-# python-binary issue
-git apply ../tools/travis_wheel/python-binary.patch
 rm python/README*
 cp -r python/* ../
 pip install python/dist/*.whl

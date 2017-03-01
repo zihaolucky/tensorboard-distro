@@ -119,11 +119,21 @@ matrix:
     - PYTHON_MAJOR_VERSION=3.6
 before_install: |
   if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-      rvm get head --auto-dotfiles
+      rvm get head --auto-dotfiles;
       brew update;
-      PYTHON_VERSION=$(pyenv install --list | grep "^$PYTHON_MAJOR_VERSION")
+      brew install pyenv || echo;
+      brew upgrade pyenv || echo;
+      brew install pandoc || echo;
+      pyenv --version
+      PYTHON_VERSION=$(pyenv install --list | tr -d ' ' | grep "^$PYTHON_MAJOR_VERSION" | grep -Ev "dev|rc|b" | tail -n 1)
       pyenv install -s $PYTHON_VERSION
-      pyenv global $PYTHON_VERSION
+      export PATH=$HOME/.pyenv/versions/$PYTHON_VERSION/bin:$PATH
+      python --version
+      if [[ -z $(command -v pip) ]]; then
+        curl -L -O https://bootstrap.pypa.io/get-pip.py
+        python get-pip.py
+      fi
+      pip --version
       # protoc
       pushd /tmp
       wget https://github.com/google/protobuf/releases/download/v3.1.0/protoc-3.1.0-osx-x86_64.zip

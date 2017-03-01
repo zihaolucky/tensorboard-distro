@@ -21,6 +21,7 @@ import fnmatch
 import os
 import re
 import sys
+import platform
 
 from setuptools import setup, Command
 from setuptools.command.install import install as InstallCommandBase
@@ -29,7 +30,10 @@ from setuptools.dist import Distribution
 # This version string is semver compatible, but incompatible with pip.
 # For pip, we will remove all '-' characters from this string, and use the
 # result for pip.
-_VERSION = '1.0.0a2'
+_VERSION = '1.0.0a3'
+
+if platform.system() == 'Linux':
+    sys.argv.append('--plat-name=manylinux1_x86_64')
 
 REQUIRED_PACKAGES = [
     'numpy >= 1.11.0',
@@ -170,8 +174,8 @@ setup(
     description='Standalone TensorBoard for visualizing in deep learning',
     long_description='TensorBoard striped from TensorFlow, for general deep learning visualization.',
     url='https://github.com/dmlc/tensorboard',
-    author='zihaolucky',
-    author_email='zihaolucky@gmail.com',
+    maintainer='zihaolucky',
+    maintainer_email='zihaolucky@gmail.com',
     # Contained modules and scripts.
     packages=['tensorboard'],
     scripts=SCRIPTS,
@@ -196,17 +200,6 @@ setup(
         'install_headers': InstallHeaders,
         'install': InstallCommand,
     },
-    # PyPI package information.
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'Intended Audience :: Education',
-        'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: Apache Software License',
-        'Topic :: Scientific/Engineering :: Mathematics',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Software Development :: Libraries',
-        ],
     license='Apache 2.0',
     keywords='tensorboard visualization',
     )
