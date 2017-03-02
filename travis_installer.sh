@@ -25,6 +25,7 @@ git apply ../../tools/travis_wheel/bazel-hacking.patch
 bazel build tensorflow/tensorboard:tensorboard
 
 # get .whl file in python/dist/
+cp -r ../tools/* bazel-bin/tensorflow/tools/
 bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 
 # install tensorboard package from .whl file
