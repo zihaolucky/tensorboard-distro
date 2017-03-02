@@ -4,6 +4,8 @@
 git clone https://github.com/dmlc/tensorboard.git tensorboard-build
 # replace setup.py
 cp setup.py tensorboard-build/python/
+# replace tools for travis build
+cp -r tools/* tensorboard-build/tools/
 cd tensorboard-build
 
 # make protobufs for logging part first
@@ -22,8 +24,6 @@ git apply ../../tools/travis_wheel/bazel-hacking.patch
 # build tensorboard
 bazel build tensorflow/tensorboard:tensorboard
 
-# prepare pip installation package
-cp -r ../../tools/* bazel-bin/tensorflow/tools/
 # get .whl file in python/dist/
 bash bazel-bin/tensorflow/tools/pip_package/build_pip_package.sh ../python/dist/
 
