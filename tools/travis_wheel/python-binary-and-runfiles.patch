@@ -1,5 +1,5 @@
 diff --git a/python/tensorboard/tensorboard b/python/tensorboard/tensorboard
-index 11825cb..83db229 100755
+index 11825cb..5984164 100755
 --- a/python/tensorboard/tensorboard
 +++ b/python/tensorboard/tensorboard
 @@ -7,11 +7,15 @@ import shutil
@@ -49,8 +49,8 @@ index 11825cb..83db229 100755
 +    package_path.extend(user_path)
 +    for mod in package_path:
 +      module_space = mod + '/tensorboard/tensorboard' + '.runfiles'
-+      if os.path.isdir(module_space):
-+        return module_space
++    if os.path.isdir(module_space):
++      return module_space
  
      runfiles_pattern = "(.*\.runfiles)/.*"
      if IsWindows():
