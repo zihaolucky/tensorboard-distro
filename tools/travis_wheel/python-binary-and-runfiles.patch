@@ -1,8 +1,8 @@
 diff --git a/python/tensorboard/tensorboard b/python/tensorboard/tensorboard
-index 11825cb..ff9cef8 100755
+index 11825cb..83db229 100755
 --- a/python/tensorboard/tensorboard
 +++ b/python/tensorboard/tensorboard
-@@ -7,6 +7,7 @@ import shutil
+@@ -7,11 +7,15 @@ import shutil
  import sys
  import subprocess
  import zipfile
@@ -10,7 +10,15 @@ index 11825cb..ff9cef8 100755
  
  # Return True if running on Windows
  def IsWindows():
-@@ -37,7 +38,12 @@ def FindPythonBinary():
+   return os.name == 'nt'
+ 
++# get Python version
++PY3 = sys.version_info[0] == 3
++
+ PYTHON_BINARY = '/Users/zihao.zzh/anaconda2/envs/tensorboard-test/bin/python'
+ if IsWindows() and not PYTHON_BINARY.endswith('.exe'):
+   PYTHON_BINARY = PYTHON_BINARY + '.exe'
+@@ -37,7 +41,15 @@ def FindPythonBinary():
        'Bazel does not support execution of Python interpreters via labels yet')
    elif PYTHON_BINARY.startswith('/'):
      # Case 2: Absolute path.
@@ -20,11 +28,14 @@ index 11825cb..ff9cef8 100755
 +      return PYTHON_BINARY
 +    else:
 +      # not exist, have to search. often occurs in travis-built wheel.
-+      return SearchPath('python')
++      if PY3:
++        return SearchPath('python3')
++      else:
++        return SearchPath('python')
    elif '/' in PYTHON_BINARY:
      # Case 3: Path is relative to current working directory.
      return os.path.join(os.getcwd(), PYTHON_BINARY)
-@@ -58,6 +64,18 @@ def FindModuleSpace():
+@@ -58,6 +70,18 @@ def FindModuleSpace():
      module_space = stub_filename + '.runfiles'
      if os.path.isdir(module_space):
        break
@@ -38,8 +49,8 @@ index 11825cb..ff9cef8 100755
 +    package_path.extend(user_path)
 +    for mod in package_path:
 +      module_space = mod + '/tensorboard/tensorboard' + '.runfiles'
-+    if os.path.isdir(module_space):
-+      return module_space
++      if os.path.isdir(module_space):
++        return module_space
  
      runfiles_pattern = "(.*\.runfiles)/.*"
      if IsWindows():
