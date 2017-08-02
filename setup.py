@@ -30,7 +30,7 @@ from setuptools.dist import Distribution
 # This version string is semver compatible, but incompatible with pip.
 # For pip, we will remove all '-' characters from this string, and use the
 # result for pip.
-_VERSION = '1.0.0a9'
+_VERSION = '1.0.0r1'
 
 if platform.system() == 'Linux':
     sys.argv.append('--plat-name=manylinux1_x86_64')
@@ -177,7 +177,7 @@ setup(
     maintainer='zihaolucky',
     maintainer_email='zihaolucky@gmail.com',
     # Contained modules and scripts.
-    packages=['tensorboard'],
+    packages=['tensorboard-lite'],
     scripts=SCRIPTS,
     headers=headers,
     install_requires=REQUIRED_PACKAGES,
